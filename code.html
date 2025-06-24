@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FBI | خدمات الحماية الأمنية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <style>
+        :root {
+            --primary: #0a192f;
+            --secondary: #48bfe3; 
+            --accent: #64ffda;
+            --dark: #112240;
+            --light: #ccd6f6;
+            --danger: #ff3333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background-color: var(--primary);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: rgba(10, 25, 47, 0.9);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            font-size: 1.8rem;
+            color: var(--danger);
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-link {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+        }
+
+        section {
+            padding: 5rem 5%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover;
+        }
+
+        .hero-content {
+            max-width: 100%;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--danger);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #e60000;
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 1.5rem;
+            border-left: 3px solid var(--danger);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp {
+            background-color: #25D366;
+        }
+
+        .instagram {
+            background: linear-gradient(45deg, #833AB4, #E1306C, #FCAF45);
+        }
+
+        .contact-info {
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        footer {
+            background-color: var(--dark);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        /* تحسينات للشاشات المتوسطة */
+        @media (min-width: 768px) {
+            header {
+                padding: 1.2rem 5%;
+            }
+
+            .logo i {
+                font-size: 2rem;
+            }
+
+            .logo h1 {
+                font-size: 1.8rem;
+            }
+
+            nav {
+                gap: 2rem;
+            }
+
+            .nav-link {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                margin-bottom: 4rem;
+            }
+
+            .services-container {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                gap: 2rem;
+            }
+
+            .social-link {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        /* تحسينات للشاشات الكبيرة */
+        @media (min-width: 1024px) {
+            .hero-content {
+                max-width: 800px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <i class="fas fa-shield-alt"></i>
+            <h1>FBI</h1>
+        </div>
+        <nav>
+            <a href="#services" class="nav-link">الخدمات</a>
+            <a href="#contact" class="nav-link">تواصل معنا</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1><span style="color: var(--danger);">خدماتنا الأمنية</span> لحمايتك من التهديدات الإلكترونية</h1>
+            <p style="margin-bottom: 2rem;">فريق متخصص من نخبة خبراء الأمن السيبراني لتأمين بياناتك وحمايتك من جميع أشكال الجرائم الإلكترونية</p>
+            <a href="#services" class="btn btn-primary">استكشف الخدمات</a>
+        </div>
+    </section>
+
+    <section id="services" style="background-color: var(--dark);">
+        <div class="section-title">
+            <h2>خدمات <span style="color: var(--danger);">FBI</span> الأمنية</h2>
+            <p style="color: var(--secondary);">حلول متكاملة لجميع احتياجاتك الأمنية في العالم الرقمي</p>
+        </div>
+        
+        <div class="services-container">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h3>حل مشاكل الابتزاز الإلكتروني</h3>
+                <p>نقدم حلاً شاملاً لمواجهة الابتزاز الإلكتروني يشمل التحقيق في الحالات، تتبع الجناة، حذف المحتوى المسيء، ودعم قانوني متكامل لحماية الضحايا.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>حماية الحسابات من الاختراق</h3>
+                <p>نظام حماية متقدم لجميع حساباتك يضمن عدم اختراقها مع مراقبة مستمرة، إنذارات فورية لأي نشاط مشبوه، واستعادة الحسابات المخترقة بسرعة.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="background-color: var(--primary);">
+        <div class="section-title">
+            <h2>تواصل مع <span style="color: var(--danger);">فريقنا</span></h2>
+            <p style="color: var(--secondary);">متاحون لمساعدتك على مدار الساعة</p>
+        </div>
+        
+        <div class="contact-container">
+            <p>يمكنك التواصل معنا مباشرة عبر الوسائل التالية:</p>
+            
+            <div class="social-links">
+                <a href="https://wa.me/963933829164" class="social-link whatsapp" target="_blank" title="واتساب">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://www.instagram.com/mohmmadjafar74?igsh=ZGUzMzM3NWJiOQ==" class="social-link instagram" target="_blank" title="إنستغرام">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+            
+            <div class="contact-info">
+                <p><i class="fas fa-phone" style="color: var(--accent); margin-left: 8px;"></i> 0933829164</p>
+                <p style="margin-top: 1rem;">للحالات الطارئة على مدار 24/7</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>جميع الحقوق محفوظة © <span id="year"></span> | فريق <span style="color: var(--danger);">FBI</span></p>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
